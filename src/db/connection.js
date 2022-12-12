@@ -1,13 +1,18 @@
 const mongoose = require('mongoose');
+const debug = require('debug')
 
 const dbConnection = async() =>{
+    mongoose.set('strictQuery',false)
 try {
-   const conn =  await mongoose.connect(encodeURI(process.env.DB_CONNECT),
+  await mongoose.connect(encodeURI(process.env.DB_CONNECT),
    {
     useNewUrlParser:true,
     useUnifiedTopology:true
 })
 
+const conn = mongoose.connection
+
+console.log(`mongodb connected on port: ${conn.port}`);
 conn.on('connected',()=>{
     debug('DB connected')
 })
