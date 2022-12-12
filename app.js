@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv').config()
 const cookieParser = require('cookie-parser')
 const dbConnection = require('./src/db/connection');
-const debug = require('debug')('app')
+const debug = require('debug')('app')0
 
 
 const app = express()
