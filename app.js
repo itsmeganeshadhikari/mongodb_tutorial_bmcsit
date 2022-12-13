@@ -3,6 +3,7 @@ const dotenv = require('dotenv').config()
 const cookieParser = require('cookie-parser')
 const dbConnection = require('./src/db/connection');
 const userRouter = require('./src/routes/userRoutes');
+const productRouter = require('./src/routes/productRoutes');
 const debug = require('debug')('app')
 
 
@@ -14,5 +15,6 @@ dbConnection()
 app.get('/', () => console.log(`Main page`))
 app.get('/home', (req, res) => res.send('Hello to home page'))
 app.use('/user', userRouter)
+app.use('/product', productRouter)
 
 module.exports = app
