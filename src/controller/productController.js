@@ -4,7 +4,7 @@ exports.create = (req, res) => {
     
         const products =  new Product(req.body)
         products.save()
-        res.status(200).send({message:"Data saed succesfully",product:products})
+        res.status(200).send({message:"Data saved succesfully",product:products})
 
     
 }
