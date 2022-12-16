@@ -34,7 +34,12 @@ const productSchema = new mongoose.Schema({
     expiryDate: {
         type: Date,
         required: true,
-    }
+    },
+    // one to one
+    // user : mongoose.type.Schema.Types.ObjectID
+    // one to many
+    user: [mongoose.type.Schema.Types.ObjectID]
+
 });
 
 const Product = mongoose.model('Product', productSchema)

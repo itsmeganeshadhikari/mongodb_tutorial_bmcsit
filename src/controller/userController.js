@@ -1,15 +1,22 @@
 const { response } = require("express")
 const User = require("../models/User")
 
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
+    console.log(req.body);
+
     try {
-        console.log(req.body);
         const newUser = new User(req.body)
-        const dataSave = newUser.save()
+        await newUser.save()
         res.send({ user: newUser })
+        response.status(200).send({ user: newUser })
+
     }
     catch (e) {
         response.status(500).send({ message: "Error" })
 
     }
+}
+
+exports.getUser = async (req, res) => {
+
 }
