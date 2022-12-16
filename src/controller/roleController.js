@@ -12,6 +12,6 @@ exports.create = async(req, res) =>{
 }
 
 exports.getAllRole = async(req, res) =>{
-    let roleData =  await Role.find({})
+    let roleData =  await Role.find()
     res.status(200).send({data:roleData})
 }

@@ -12,6 +12,6 @@ exports.create = async(req, res) =>{
 }
 
 exports.getAllUser = async(req, res) =>{
-    let userData =  await User.find().populate("product")
+    let userData =  await User.find().populate("product role")
     res.status(200).send({data:userData})
 }
