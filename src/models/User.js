@@ -23,7 +23,11 @@ const userSchema = new mongoose.Schema({
     product: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Product"
-    }]
+    }],
+    role: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "role"
+    }
 });
 
 const User = mongoose.model('User', userSchema)

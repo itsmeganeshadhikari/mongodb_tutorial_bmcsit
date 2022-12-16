@@ -25,6 +25,11 @@ const responseMessages = {
     VALIDATION_SUCCESS: 'Validation Success.',
     VALIDATION_FAILURE: 'Validation failed.',
     NOT_ALLOWED: 'Not allowed to update this data',
+
+    // recently changed
+    SUPER_ADMIN: "Super Admin",
+    ADMIN: "Admin",
+    NORMAL_USER: "Normal User",
 }
 
 module.exports = responseMessages
