@@ -16,3 +16,8 @@ exports.create = (req, res) => {
 
     }
 }
+
+exports.getAllProduct = async (req, res) => {
+    let productData = await Product.find()
+    res.status(200).send({ data: productData })
+}

@@ -18,7 +18,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: [6, 'Password must be minimum 6 character long']
-    }
+    },
+    // relation - one to many
+    product: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product"
+    }]
 });
 
 const User = mongoose.model('User', userSchema)

@@ -38,7 +38,7 @@ const productSchema = new mongoose.Schema({
     // one to one
     // user : mongoose.type.Schema.Types.ObjectID
     // one to many
-    user: [mongoose.type.Schema.Types.ObjectID]
+    // user: [mongoose.type.Schema.Types.ObjectID]
 
 });
 

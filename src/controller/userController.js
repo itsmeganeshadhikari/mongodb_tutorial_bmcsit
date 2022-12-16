@@ -17,6 +17,8 @@ exports.create = async (req, res) => {
     }
 }
 
-exports.getUser = async (req, res) => {
+exports.getAllUser = async (req, res) => {
+    let userData = await User.find()
+    res.status(200).send({ data: userData })
 
 }
