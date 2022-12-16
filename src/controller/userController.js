@@ -9,5 +9,9 @@ exports.create = async(req, res) =>{
     } catch (error) {
         res.status(500).send({message:"Error"})
     }
+}
 
+exports.getAllUser = async(req, res) =>{
+    let userData =  await User.find().populate("product")
+    res.status(200).send({data:userData})
 }

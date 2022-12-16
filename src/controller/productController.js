@@ -5,3 +5,8 @@ exports.create=(req, res)=>{
     products.save()
     res.status(200).send({message:"Data save successfully",product:products})
 }
+
+exports.getAllProduct = async(req, res)=>{
+    const allProduct= await Product.find()
+    res.status(200).send({data:allProduct})
+} 
