@@ -3,8 +3,9 @@ const { response } = require("express");
 const User = require("../models/user")
 
 exports.create = (req,res) =>{
+    
     try {
-        console.log(req.body);
+        
         const newUser = new User(req.body)
         const dataSave = newUser.save()
         res.send({user:newUser})
