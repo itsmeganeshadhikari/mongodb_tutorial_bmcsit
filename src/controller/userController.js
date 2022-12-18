@@ -15,3 +15,26 @@ exports.getAllUser = async(req, res) =>{
     let userData =  await User.find().populate("product role")
     res.status(200).send({data:userData})
 }
+
+exports.update = async (req, res) => {
+  const id = req.params.id
+  const idExist = await User.findById({_id: id})
+  if(!idExist) {
+    res.send({message:"Incorrect id"})
+  }
+  try {
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: id },
+      { $set: { name:req.body.name } },
+      { new: true }
+    );
+    if(updatedUser){
+      res.send({message:"Updated Successfuly", data:updatedUser})
+    }else{
+      res.send({message:"Error on update"})
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+  
