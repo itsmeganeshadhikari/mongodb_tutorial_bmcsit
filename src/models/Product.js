@@ -8,33 +8,29 @@ const productSchema =  new mongoose.Schema({
         required:true,
         trim:true
     },
-    price:{
-        type:Number,
-    },
-    rating: {
-        type: Number,
-      
-        
-    },
-    description: {
-        type: String,
+    description:{
+        type:String,
         required: true,
         unique: true
-        
     },
-    serial_no: {
-        type: Number,
-        required: true,
-        unique: true,
-        
+    rating: {
+        type: Number
     },
-    manufactureDate: {
+    price:{
+        type: Number
+    },
+    serail_no:{
+        type: String,
+        required:true,
+        unique: true
+    },
+
+    manufactureDate:{
         type: Date,
-        
     },
-    expireDate: {
-        type: Date, 
-    },
+    expireDate:{
+        type:Date,
+    }
 })
 
 const Product = mongoose.model('Product',productSchema)

@@ -17,6 +17,14 @@ const userSchema =  new mongoose.Schema({
         type: String,
         required: true,
         min: [6,'Six character long']
+    },
+    product:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Product"
+    }],
+    role:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Role"
     }
 })
 
