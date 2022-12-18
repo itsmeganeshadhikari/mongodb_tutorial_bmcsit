@@ -22,3 +22,47 @@ exports.getAllUser = async (req, res) => {
     res.status(200).send({ data: userData })
 
 }
+
+exports.update = async (req, res) => {
+    // console.log(req.body)
+    // console.log(req.params.id)
+    try {
+        const { id } = req.params.id;
+        console.log(id)
+        const updatedUser = await User.findOneAndUpdate(
+            { _id: req.params.id },
+            { $set: { name: req.body.name } },
+            { new: true }
+        );
+        if (updatedUser) {
+            res.send({ message: "Updated True", updatedUser });
+
+        } else {
+            res.send({ message: "Updated false" });
+
+        }
+
+        res.status(200).send(updatedUser);
+    } catch (e) {
+        res.status(500).send(e.message);
+
+
+    }
+
+}
+
+exports.deleteUser = async (req, res) => {
+    console.log(req.body)
+    console.log(req.params.id)
+    try {
+        const id = req.params.id;
+        console.log(id)
+        const userToDelete = await User.findById({ _id: id });
+        const user = userToDelete
+        userToDelete.deleteOne()
+        res.status(200).send({ user })
+    } catch (e) {
+        res.status(500).send(e.message)
+
+    }
+}
