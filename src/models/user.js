@@ -1,11 +1,11 @@
-const mongoose = require('mongoose')
+const mongoose =  require('mongoose')
 
-const userSchema  = new mongoose.Schema({
+const userSchema =  new mongoose.Schema({
     name:{
         type:String,
-        minlength:[3,'Too short name '],
-        maxlength:[50,'Too long name '],
-        required: true,
+        minlength:[3,'To short name'],
+        maxlength:[50,'To long name'],
+        required:true,
         trim:true
     },
     email:{
@@ -13,21 +13,20 @@ const userSchema  = new mongoose.Schema({
         required: true,
         unique: true
     },
-    password:{
-        type:String,
-        required:true,
-        min:[6,'Six character long']
+    password: {
+        type: String,
+        required: true,
+        min: [6,'Six character long']
     },
     product:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Product"
-        
-
     }],
-    role:[{
+    role:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Role"
-    }]
+    }
 })
+
 const User = mongoose.model('User',userSchema)
-module.exports = User
+module.exports =  User
