@@ -37,4 +37,23 @@ exports.update = async (req, res) => {
     console.log(error.message);
   }
 }
+
+exports.deleteUser = async (req, res) => {
+  const id = req.params.id
+  const idExist = await User.findById({_id: id})
+  if(!idExist) {
+    res.send({message:"Incorrect id"})
+  }
+  try {
+    const deleteUser = await User.deleteOne({_id: id});
+    if(deleteUser){
+      res.send({message:"Deleted Successfuly", data:deleteUser})
+    }else{
+      res.send({message:"Error on delete"})
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
   
