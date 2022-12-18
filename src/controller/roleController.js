@@ -18,6 +18,6 @@ exports.create = async (req, res) => {
 }
 
 exports.getAllRoles = async (req, res) => {
-    let roleData = await Role.find().populate()
+    let roleData = await Role.find()
     res.status(200).send({ data: roleData })
 }
