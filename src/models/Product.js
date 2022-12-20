@@ -35,12 +35,13 @@ const productSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
+}, { timestamps: true }
     // one to one
     // user : mongoose.type.Schema.Types.ObjectID
     // one to many
     // user: [mongoose.type.Schema.Types.ObjectID]
 
-});
+)
 
 const Product = mongoose.model('Product', productSchema)
 module.exports = Product;

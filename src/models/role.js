@@ -12,7 +12,7 @@ const roleSchema = new mongoose.Schema({
         required: true
     }
 
-});
+}, { timestamps: true });
 
 //to save this instantly
 roleSchema.methods.toJson = function () {

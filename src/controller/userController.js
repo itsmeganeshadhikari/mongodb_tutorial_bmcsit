@@ -4,6 +4,7 @@ const User = require("../models/User")
 exports.create = async (req, res) => {
     console.log(req.body);
 
+
     try {
         const newUser = new User(req.body)
         await newUser.save()
@@ -29,6 +30,11 @@ exports.update = async (req, res) => {
     try {
         const { id } = req.params.id;
         console.log(id)
+        const userToUpdate = await User.findById({ _id: id })
+        if (!userToUpdate) {
+            res.send({ message: "User does not exist" });
+
+        }
         const updatedUser = await User.findOneAndUpdate(
             { _id: req.params.id },
             { $set: { name: req.body.name } },
@@ -45,22 +51,19 @@ exports.update = async (req, res) => {
         res.status(200).send(updatedUser);
     } catch (e) {
         res.status(500).send(e.message);
-
-
     }
 
 }
 
 exports.deleteUser = async (req, res) => {
-    console.log(req.body)
-    console.log(req.params.id)
     try {
         const id = req.params.id;
-        console.log(id)
         const userToDelete = await User.findById({ _id: id });
-        const user = userToDelete
+        if (!userToDelete) {
+            res.send({ message: "User does not exist" });
+        }
         userToDelete.deleteOne()
-        res.status(200).send({ user })
+        res.status(200).send({ userToDelete })
     } catch (e) {
         res.status(500).send(e.message)
 

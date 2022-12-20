@@ -27,8 +27,8 @@ const userSchema = new mongoose.Schema({
     role: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Role"
-    }
-});
+    },
+}, { timestamps: true });
 
 const User = mongoose.model('User', userSchema)
 module.exports = User;
