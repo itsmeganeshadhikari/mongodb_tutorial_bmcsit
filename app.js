@@ -6,6 +6,7 @@ const dbConnection = require('./src/db/connection');
 const userRoute = require('./src/routes/userRoutes');
 const productRoute = require('./src/routes/productRoute');
 const roleRoute = require('./src/routes/roleRoute');
+const addressRoute = require('./src/routes/addressRoute');
 
 
 const app = express()
@@ -19,5 +20,6 @@ app.get('/home', (req, res) => res.send('Hello to home page'))
 app.use('/user',userRoute)
 app.use('/product',productRoute)
 app.use('/role',roleRoute)
+app.use('/address',addressRoute)
 
 module.exports = app
