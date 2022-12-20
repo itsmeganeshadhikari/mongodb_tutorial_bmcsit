@@ -19,7 +19,7 @@ const productSchema =  new mongoose.Schema({
     price:{
         type: Number
     },
-    serail_no:{
+    serial_no:{
         type: String,
         required:true,
         unique: true
@@ -31,7 +31,7 @@ const productSchema =  new mongoose.Schema({
     expireDate:{
         type:Date,
     }
-})
+},{timestamp:true})
 
 const Product = mongoose.model('Product',productSchema)
 module.exports =  Product

@@ -11,8 +11,8 @@ try {
 })
 
 const conn = mongoose.connection
-
 console.log(`mongodb connected on port: ${conn.port}`);
+
 conn.on('connected',()=>{
     debug('DB connected')
 })
