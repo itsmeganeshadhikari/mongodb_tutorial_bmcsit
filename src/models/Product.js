@@ -31,7 +31,7 @@ const productSchema =  new mongoose.Schema({
     expireDate:{
         type:Date,
     }
-})
+},{timestamp:true})
 
 const Product = mongoose.model('Product',productSchema)
 module.exports =  Product
